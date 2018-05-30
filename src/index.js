@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { AppContainer } from 'react-hot-loader';
 // import registerServiceWorker from './registerServiceWorker';
 
 // ReactDOM.render(<App />, document.getElementById('root'));
@@ -16,3 +17,10 @@ const render = Component => {
    );
 }
 
+render(App);
+
+if (module.hot) {
+   module.hot.accept('./App', () => {
+      render(App);
+   })
+}
